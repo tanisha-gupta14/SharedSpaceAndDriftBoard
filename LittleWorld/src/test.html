@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+</head>
+<body>
+<h2>Shared Space Test Listener</h2>
+<pre id="log"></pre>
+
+<script>
+    const socket = new SockJS('http://localhost:8080/ws');
+    const stompClient = Stomp.over(socket);
+
+    stompClient.connect({}, function (frame) {
+        console.log('Connected: ' + frame);
+        document.getElementById('log').textContent += "Connected!\n\n";
+        stompClient.subscribe('/topic/space', function (message) {
+            const data = JSON.parse(message.body);
+            document.getElementById('log').textContent += JSON.stringify(data, null, 2) + "\n\n";
+        });
+    }, function (error) {
+        console.error('Connection error:', error);
+        document.getElementById('log').textContent += "Connection error: " + error + "\n";
+    });
+</script>
+</body>
+</html>
