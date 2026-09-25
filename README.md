@@ -72,7 +72,6 @@ curl -X POST http://localhost:8080/api/moments \
 
 ### ML service
 
-### ML service
 
 | Method | Path          | Body                           | Description                           |
 | ------ | ------------- | ------------------------------ | ------------------------------------- |
