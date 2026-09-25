@@ -72,11 +72,14 @@ curl -X POST http://localhost:8080/api/moments \
 
 ### ML service
 
-| Method | Path | Body | Description |
-| --- | --- | --- |
-| `POST` | `/embed` | Multipart `file` | Returns a normalized image embedding. |
-| `POST` | `/caption` | Multipart `file` | Returns a generated image caption. |
-| `POST` | `/name-board` | JSON `{ "captions": ["..."] }` | Returns a short board name. |
+### ML service
+
+| Method | Path          | Body                           | Description                           |
+| ------ | ------------- | ------------------------------ | ------------------------------------- |
+| `POST` | `/embed`      | Multipart `file`               | Returns a normalized image embedding. |
+| `POST` | `/caption`    | Multipart `file`               | Returns a generated image caption.    |
+| `POST` | `/name-board` | JSON `{ "captions": ["..."] }` | Returns a short board name.           |
+
 
 ## Requirements
 
